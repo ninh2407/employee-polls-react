@@ -23,17 +23,22 @@ const App = (props) => {
       <LoadingBar />
       <Nav />
       <div className="container">
-        {props.loading === true ? null : (
+
+        {props.authedUser && !props.loading ? (
           <Routes>
-            <Route path="/login"exact element={<Login />} />
-            <Route path="/" exact element={props.authedUser ? <HomePage /> : <Login/>} />
-            <Route path="/homepage" exact element={props.authedUser ? <HomePage /> : <Login/>} />
+            <Route path="/" exact element={<HomePage />} />
+            <Route path="/homepage" exact element={<HomePage />} />
             <Route path="/question/:id" element={<Question />} />
             <Route path="/leaderboard" element={<LeaderBoard />} />
-            <Route path="/add" element={props.authedUser ? <NewQuestion/> : <Login/>}/>
-            <Route path="/error" element={<Page404/>}/>
+            <Route path="/add" element={<NewQuestion />} />
+            <Route path="*" element={<Page404 />} />
           </Routes>
-        )}
+        ) :
+          (
+            <Routes>
+              <Route path="*" exact element={<Login />} />
+            </Routes>
+          )}
       </div>
     </Fragment>
   );

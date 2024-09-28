@@ -20,7 +20,7 @@ const Nav = (props) => {
                     <Link to="/add">New</Link>
                 </li>
                 <li>
-                    <Link to="/login" onClick={logOut}>{props.authedUser ? "Log out" : "Log in"}</Link>
+                    <Link to="/" onClick={logOut}>{props.authedUser ? "Log out" : "Log in"}</Link>
                 </li>
                 {props.authedUser && (
                 <li>

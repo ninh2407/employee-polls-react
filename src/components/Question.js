@@ -38,7 +38,6 @@ const Question = (props) => {
 
     return (
         <div className="container">
-            {console.log(props)}
             <div>
                 <h2>Poll by {author} </h2>
                 <h2>Would You Rather</h2>

@@ -13,7 +13,6 @@ const NewQuestion = (props) => {
             "optionTwoText": document.getElementById("secondOption").value, 
             "author" : props.authedUser
         }
-        console.log(question);
         props.dispatch(handleAddQuestion(question));
         props.dispatch(handleInitData());
         navigate("/homepage");
